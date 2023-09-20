@@ -1,0 +1,44 @@
+<div class="row">
+<div class="col-md-3">
+<%= link_to 'back', posts_path, class: 'btn btn-secondary mb-3'%>
+<div class="card">
+<div class="card-body">
+<h4 class='card-title'>Editing Post</h4>
+<%= render "form", post: @post %>
+</div>
+</div>
+</div>
+<div class="col-md-9">
+<div class="mb-3">
+<%= form_with(model:[@post, @paragraph]) do |form| %>
+<%= form.hidden_field :element_type, value: 'paragraph'%>
+<%= form.submit "paragraph", class: 'btn btn-primary'%>
+<% end %>
+</div>
+
+<div class ="card">
+<div class="card-body pt-5">
+  <% @post.elements.each do |element|%>
+    <% if element.persisted? %>
+    <div class="mb-3">
+    <div class="paragraph-content">
+    <%= element.content%>
+    </div>
+    <div class="paragraph-form ">
+    <%= form_with(model:[@post, element]) do |form| %>
+    <%= form.rich_text_area :content %>
+    <%= form.submit "Save", class: 'btn btn-primary mt-3'%>
+    <a href="#" class='cancel btn btn-secondary' >Cancel</a>
+
+    <%= link_to 'Delete', post_element_path(@post, element), method: :delete, class: 'btn btn-danger', data:{ confirm: "Are  you sure?"}%>
+    <% end %>
+    </div>
+    </div>
+   <% end %>
+  <% end %>
+</div>
+</div>
+</div>
+</div>
+
+
