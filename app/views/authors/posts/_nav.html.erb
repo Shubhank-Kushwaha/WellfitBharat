@@ -1,0 +1,12 @@
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+     <a class="navbar-brand">WellfitBharat</a>
+    <% if author_signed_in? %>
+      <%= link_to 'New Post', new_post_path, class: 'btn btn-primary ' %>
+      <%= button_to "Sign out", destroy_author_session_path, method: :delete, class:"btn btn-primary" %>
+    <% else %>
+      <%= button_to "Sign in", new_author_session_path, method: :get %> 
+    <% end %> 
+  </div>
+</nav>
+

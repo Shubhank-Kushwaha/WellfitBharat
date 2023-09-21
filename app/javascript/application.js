@@ -5,23 +5,28 @@ import "trix"
 import "@rails/actiontext"
 
 
-document.addEventListener('turbolinks:load', () => {
-    document.addEventListener('click', () => {
-      let element = Event.target.closest('.paragraph-content')
-      if (!element) return;
-  
-      element.classList.add('d-none')
-      element.nextElementSibling.classList.remove('d-none')
-    })
-  
-    document.addEventListener('click', () => {
-      if (!Event.target.matches('.cancel')) return;
-  
-      Event.preventDefault();
-  
-      let element = Event.target.closest('.paragraph-form')
-  
-      element.classList.add('d-none')
-      element.previousElementSibling.classList.remove('d-none')
-    })
-  })
+document.addEventListener('click', (event) => {
+  let element = event.target.closest('.paragraph-content')
+  if (!element) return;
+
+  element.classList.add('d-none')
+  element.nextElementSibling.classList.remove('d-none')
+})
+
+document.addEventListener('click', (event) => {
+  if (!event.target.matches('.cancel')) return;
+  event.preventDefault()
+
+  let element = event.target.closest('.paragraph-form')
+
+  element.classList.add('d-none')
+  element.previousElementSibling.classList.remove('d-none')
+})
+
+
+
+
+
+
+
+

@@ -4,6 +4,7 @@ module Authors
     before_action :set_element, only: [:update, :destroy]
 
     # POST /elements
+
     def create
       @element = @post.elements.build(element_params)
 
@@ -14,11 +15,12 @@ module Authors
       end
       redirect_to edit_post_path(@post), notice: notice
     end
-
+     
 
     # PATCH/PUT /elements/1
     def update
       @element.update(element_params)
+      redirect_to edit_post_path(@element.post)
     end
 
     # DELETE /elements/1
@@ -26,6 +28,10 @@ module Authors
       @element.destroy
       redirect_to edit_post_path(@element.post)
     end
+ 
+    
+    
+    
 
     private
     # Use callbacks to share common setup or constraints between actions.

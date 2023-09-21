@@ -1,5 +1,13 @@
-<h2>Forgot your password?</h2>
 
+<section class="vh-100 bg-image"
+  style="background-image: url('https://t3.ftcdn.net/jpg/01/22/71/96/360_F_122719641_V0yw2cAOrfxsON3HeWi2Sf4iVxhv27QO.jpg');">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+            <h2>Forgot your password?</h2>
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -14,3 +22,12 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+
+           </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
